@@ -1,0 +1,10 @@
+# OSX
+.DS_Store
+.DS_Store?
+._*
+
+# SASS
+.sass-cache
+
+# CodeKit
+config.codekit
