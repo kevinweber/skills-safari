@@ -1,4 +1,8 @@
 [{
+	"defaults": [
+		{ "area" : "1" }
+	],
+
 	"areas": [
 		{ "area" : "1", "text": "Interests" },
 		{ "area" : "2", "text": "Strategy/Marketing" },
@@ -6,11 +10,11 @@
 	],
 
 	"skills": [
-		{ "area": "1", "text": "Interest 1" },
-		{ "area": "2", "text": "Strategy/Marketing 1" },
-		{ "area": "1", "text": "Interest 2" },
-		{ "area": "1", "text": "Interest 3" },
-		{ "area": "2", "text": "Strategy/Marketing 2" },
-		{ "area": "3", "text": "Design/Development 1" }
+		{ "area": "1", "text": "Interest 1", "more": "Some HTML..." },
+		{ "area": "2", "text": "Strategy/Marketing 2", "more": "" },
+		{ "area": "2", "text": "Strategy/Marketing 1", "more": "" },
+		{ "area": "1", "text": "Interest 2", "more": "" },
+		{ "area": "1", "text": "Interest 3", "more": "Some text..." },
+		{ "area": "3", "text": "Design/Development 1", "more": "A description..." }
 	]
 }]

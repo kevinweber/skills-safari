@@ -11,6 +11,12 @@ var initId = "skills-safari";
 var dataUrl = "data.json";
 var dataPollInterval = 1000;
 
+var classAreaItemDefault = "saf-area-item";
+var classSkillsItemDefault = "saf-skills-item";
+var classActive = "saf-active";
+var classMore = "saf-more";
+var classNoMore = "saf-no-more";
+
 /**
  * Magic happens here.
  */
@@ -32,8 +38,8 @@ var dataPollInterval = 1000;
 		},
 
 		componentDidMount: function() {
-			this.loadData;
-			setInterval(this.loadData, this.props.pollInterval);
+			this.loadData();
+			// setInterval(this.loadData, this.props.pollInterval);	// Use this to automatically reload data from data.json
 		},
 
 		render: function() {
@@ -56,16 +62,34 @@ var dataPollInterval = 1000;
 	});
 
 	/**
+	 * Build class names for Areas and Skills, based on default area data.json)
+	 */
+	var buildClassName = function( that, data, classNameDefault ) {
+		var cN = classNameDefault;
+		var defaultArea = that.props.data[0].defaults[0]["area"];
+
+		if ( data.area === defaultArea ) {
+			cN += ' '+classActive;
+		}
+
+		return cN;
+	}
+
+	/**
 	 * Areas
 	 */
 	var Areas = React.createClass({
 		render: function() {
+			var that = this; 
+
 			var AreaList = this.props.data.map( function( data, i ) {
 				return (
 					data.areas.map( function( data, i ) {
+						var cN = buildClassName(that, data, classAreaItemDefault);
+
 						return (
-							<li key={i} className="saf-area-item saf-active" data-group="@TODO">{data.text}</li>
-							);
+							<li key={i} className={cN} data-group="@TODO">{data.text}</li>
+						);
 					})
 				);
 			});
@@ -83,12 +107,16 @@ var dataPollInterval = 1000;
 	 */
 	var Skills = React.createClass({
 		render: function() {
+			var that = this;
+
 			var SkillList = this.props.data.map( function( data, i ) {
 				return (
 					data.skills.map( function( data, i ) {
+						var cN = buildClassName(that, data, classSkillsItemDefault);
+
 						return (
-							<li key={i} className="saf-skills-item saf-active" data-group="@TODO">{data.text}</li>
-							);
+							<li key={i} className={cN} data-group="@TODO">{data.text}</li>
+						);
 					})
 				);
 			});
