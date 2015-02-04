@@ -8,31 +8,40 @@
  * Setup the plugin
  */
 var initId = "skills-safari";
-var areas = [
-	a = "Interests",
-	b = "Strategy/Marketing",
-	c = "Design/Development",
-];
-var skills = [
-	{ area: areas["a"], skill: "Interest 1" },
-	{ area: areas["b"], skill: "Strategy/Marketing 1" },
-	{ area: areas["a"], skill: "Interest 2" },
-	{ area: areas["a"], skill: "Interest 3" },
-	{ area: areas["b"], skill: "Strategy/Marketing 2" },
-	{ area: areas["c"], skill: "Design/Development 1" },
-];
+var dataUrl = "data.json";
+var dataPollInterval = 1000;
 
 /**
  * Magic happens here.
  */
-(function( saf ) {
+(function( saf, $ ) {
+
 	Builder = React.createClass({
+		getInitialState: function() {
+			return {data: []};
+		},
+
+		loadData: function() {
+			$.ajax({
+				url: this.props.url,
+				dataType: 'json',
+				success: function(data) {
+					this.setState({data: data});
+				}.bind(this)
+			});
+		},
+
+		componentDidMount: function() {
+			this.loadData;
+			setInterval(this.loadData, this.props.pollInterval);
+		},
+
 		render: function() {
 			return (
 				<div className="skills-safari">
 					<Heading />
-					<Areas areas={areas} />
-					<Skills skills={skills} />
+					<Areas data={this.state.data} />
+					<Skills data={this.state.data} />
 				</div>
 			);
 		}
@@ -51,14 +60,18 @@ var skills = [
 	 */
 	var Areas = React.createClass({
 		render: function() {
-			var AreaList = this.props.areas.map( function( area ) {
+			var AreaList = this.props.data.map( function( data, i ) {
 				return (
-					<li className="saf-area-item saf-active" data-group="@TODO">{area}</li>
+					data.areas.map( function( data, i ) {
+						return (
+							<li key={i} className="saf-area-item saf-active" data-group="@TODO">{data.text}</li>
+							);
+					})
 				);
 			});
 
 			return (
-				<ul className="saf-area">
+				<ul className="saf-areas">
 					{AreaList}
 				</ul>
 			);
@@ -70,14 +83,18 @@ var skills = [
 	 */
 	var Skills = React.createClass({
 		render: function() {
-			var SkillList = this.props.skills.map( function( data ) {
+			var SkillList = this.props.data.map( function( data, i ) {
 				return (
-					<li className="saf-skills-item saf-active" data-group="@TODO">{data.skill}</li>
+					data.skills.map( function( data, i ) {
+						return (
+							<li key={i} className="saf-skills-item saf-active" data-group="@TODO">{data.text}</li>
+							);
+					})
 				);
 			});
 
 			return (
-				<ul className="saf-area">
+				<ul className="saf-skills">
 					{SkillList}
 				</ul>
 			);
@@ -88,9 +105,9 @@ var skills = [
 	 * Initial rendering
 	 */
 	React.render(
-		<Builder />,
+		<Builder url={dataUrl} pollInterval={dataPollInterval} />,
 		document.getElementById(initId)
 	);
 
-}( window.saf = window.saf || {} ));
+}( window.saf = window.saf || {}, jQuery ));
 /* jshint ignore:end */

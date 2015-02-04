@@ -1,0 +1,16 @@
+[{
+	"areas": [
+		{ "area" : "1", "text": "Interests" },
+		{ "area" : "2", "text": "Strategy/Marketing" },
+		{ "area" : "3", "text": "Design/Development" }
+	],
+
+	"skills": [
+		{ "area": "1", "text": "Interest 1" },
+		{ "area": "2", "text": "Strategy/Marketing 1" },
+		{ "area": "1", "text": "Interest 2" },
+		{ "area": "1", "text": "Interest 3" },
+		{ "area": "2", "text": "Strategy/Marketing 2" },
+		{ "area": "3", "text": "Design/Development 1" }
+	]
+}]
