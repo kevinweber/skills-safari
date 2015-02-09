@@ -79,10 +79,14 @@ var classNoMore = classPrefix+"-no-more";
 		var defaultArea = that.props.data[0].defaults[0]["area"];
 		var currentArea = that.props.currentArea;
 
-		if ( currentArea === "" && data.area === defaultArea ) {
+		if ( 
+				( currentArea === "" && data.area === defaultArea)  ||
+				( currentArea === data.area )
+			) {
 			cN += ' '+classActive;
-		} else if ( currentArea === data.area ) {
-			cN += ' '+classActive;
+		}
+		if ( data.more !== "" && data.more !== undefined ) {
+			cN += ' '+classMore;
 		}
 
 		return cN;
@@ -98,11 +102,11 @@ var classNoMore = classPrefix+"-no-more";
 			var AreaList = this.props.data.map( function( data, i ) {
 				return (
 					data.areas.map( function( data, i ) {
-						var cn = buildClassName(that, data, classAreasItemDefault);
+						var cN = buildClassName(that, data, classAreasItemDefault);
 
 						return (
 							<li key={i} 
-							className={cn} 
+							className={cN} 
 							data-group={classPrefix+"-"+data.area} 
 							onClick={function(){that.props.onClick(data.area)}}>
 							{data.text}
@@ -133,7 +137,11 @@ var classNoMore = classPrefix+"-no-more";
 						var cN = buildClassName(that, data, classSkillsItemDefault);
 
 						return (
-							<li key={i} className={cN} data-group={classPrefix+"-"+data.area}>{data.text}</li>
+							<Skill 
+							key={i} 
+							cN={cN} 
+							group={classPrefix+"-"+data.area}
+							text={data.text} />
 						);
 					})
 				);
@@ -143,6 +151,40 @@ var classNoMore = classPrefix+"-no-more";
 				<ul className={classSkills}>
 					{SkillList}
 				</ul>
+			);
+		}
+	});
+
+	var Skill = React.createClass({
+		getInitialState: function() {
+			return {
+				clicked: false,
+			};
+		},
+
+		__handleClick: function() {
+			// Only handle that click when element is active (cN must contain classActive)
+			if (this.props.cN.indexOf(classActive) > -1) {
+				this.setState({clicked: true});
+			}
+		},
+
+		filterClassName: function( cN ) {
+			if (
+				// Only add classNoMore when element was clicked
+				this.state.clicked &&
+				// AND className contains classMore 
+				(cN.indexOf(classMore) > -1)
+				) {
+					cN += ' '+classNoMore;
+			}
+			return cN;
+		},
+
+		render: function() {
+			var cN = this.filterClassName(this.props.cN);
+			return (
+				<li key={this.props.key} className={cN} data-group={this.props.group} onClick={this.__handleClick}>{this.props.text}</li>
 			);
 		}
 	});
