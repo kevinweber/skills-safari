@@ -10,8 +10,8 @@ $colour-main: #009000;
  * Classes
  *
 .skills-safari
-	.saf-area
-		.saf-area-item
+	.saf-areas
+		.saf-areas-item
 	.saf-skills
 		.saf-skills-item
 			.saf-more		// Used when additional information is available
@@ -37,7 +37,7 @@ h1 {
 	margin: 0.5rem;
 }
 
-.saf-area-item, .saf-skills-item {
+.saf-areas-item, .saf-skills-item {
 	display: inline-block;
 	color: $colour-main;
 	border: 2px solid transparent;
@@ -64,7 +64,7 @@ h1 {
 	}
 }
 
-.saf-area-item {
+.saf-areas-item {
 	&:not(.saf-active) {
 		cursor: pointer;
 	}

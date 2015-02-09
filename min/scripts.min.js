@@ -11,16 +11,20 @@ var initId = "skills-safari";
 var dataUrl = "data.json";
 var dataPollInterval = 1000;
 
-var classAreaItemDefault = "saf-area-item";
-var classSkillsItemDefault = "saf-skills-item";
-var classActive = "saf-active";
-var classMore = "saf-more";
-var classNoMore = "saf-no-more";
+var classPrefix = "saf";
+var classAreas = classPrefix+"-areas";
+var classAreasItemDefault = classAreas+"-item";
+var classSkills = classPrefix+"-skills";
+var classSkillsItemDefault = classSkills+"-item";
+var classActive = classPrefix+"-active";
+var classMore = classPrefix+"-more";
+var classNoMore = classPrefix+"-no-more";
 
 /**
  * Magic happens here.
  */
 (function( saf, $ ) {
+	var dataAreaActive = "";
 
 	Builder = React.createClass({
 		getInitialState: function() {
@@ -44,7 +48,7 @@ var classNoMore = "saf-no-more";
 
 		render: function() {
 			return (
-				<div className="skills-safari">
+				<div className={initId}>
 					<Heading />
 					<Areas data={this.state.data} />
 					<Skills data={this.state.data} />
@@ -68,7 +72,7 @@ var classNoMore = "saf-no-more";
 		var cN = classNameDefault;
 		var defaultArea = that.props.data[0].defaults[0]["area"];
 
-		if ( data.area === defaultArea ) {
+		if ( dataAreaActive === "" && data.area === defaultArea ) {
 			cN += ' '+classActive;
 		}
 
@@ -85,17 +89,17 @@ var classNoMore = "saf-no-more";
 			var AreaList = this.props.data.map( function( data, i ) {
 				return (
 					data.areas.map( function( data, i ) {
-						var cN = buildClassName(that, data, classAreaItemDefault);
+						var cN = buildClassName(that, data, classAreasItemDefault);
 
 						return (
-							<li key={i} className={cN} data-group="@TODO">{data.text}</li>
+							<li key={i} className={cN} data-group={classPrefix+"-"+data.area}>{data.text}</li>
 						);
 					})
 				);
 			});
 
 			return (
-				<ul className="saf-areas">
+				<ul className={classAreas}>
 					{AreaList}
 				</ul>
 			);
@@ -115,14 +119,14 @@ var classNoMore = "saf-no-more";
 						var cN = buildClassName(that, data, classSkillsItemDefault);
 
 						return (
-							<li key={i} className={cN} data-group="@TODO">{data.text}</li>
+							<li key={i} className={cN} data-group={classPrefix+"-"+data.area}>{data.text}</li>
 						);
 					})
 				);
 			});
 
 			return (
-				<ul className="saf-skills">
+				<ul className={classSkills}>
 					{SkillList}
 				</ul>
 			);
