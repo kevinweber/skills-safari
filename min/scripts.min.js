@@ -24,11 +24,17 @@ var classNoMore = classPrefix+"-no-more";
  * Magic happens here.
  */
 (function( saf, $ ) {
-	var dataAreaActive = "";
 
-	Builder = React.createClass({
+	var Builder = React.createClass({
 		getInitialState: function() {
-			return {data: []};
+			return {
+				data: [],
+				currentArea: "",
+			};
+		},
+
+		updateDataAreaActive: function( id ) {
+			this.setState({currentArea:id});
 		},
 
 		loadData: function() {
@@ -50,8 +56,8 @@ var classNoMore = classPrefix+"-no-more";
 			return (
 				<div className={initId}>
 					<Heading />
-					<Areas data={this.state.data} />
-					<Skills data={this.state.data} />
+					<Areas data={this.state.data} onClick={this.updateDataAreaActive} currentArea={this.state.currentArea} />
+					<Skills data={this.state.data} currentArea={this.state.currentArea} />
 				</div>
 			);
 		}
@@ -71,13 +77,16 @@ var classNoMore = classPrefix+"-no-more";
 	var buildClassName = function( that, data, classNameDefault ) {
 		var cN = classNameDefault;
 		var defaultArea = that.props.data[0].defaults[0]["area"];
+		var currentArea = that.props.currentArea;
 
-		if ( dataAreaActive === "" && data.area === defaultArea ) {
+		if ( currentArea === "" && data.area === defaultArea ) {
+			cN += ' '+classActive;
+		} else if ( currentArea === data.area ) {
 			cN += ' '+classActive;
 		}
 
 		return cN;
-	}
+	};
 
 	/**
 	 * Areas
@@ -89,10 +98,15 @@ var classNoMore = classPrefix+"-no-more";
 			var AreaList = this.props.data.map( function( data, i ) {
 				return (
 					data.areas.map( function( data, i ) {
-						var cN = buildClassName(that, data, classAreasItemDefault);
+						var cn = buildClassName(that, data, classAreasItemDefault);
 
 						return (
-							<li key={i} className={cN} data-group={classPrefix+"-"+data.area}>{data.text}</li>
+							<li key={i} 
+							className={cn} 
+							data-group={classPrefix+"-"+data.area} 
+							onClick={function(){that.props.onClick(data.area)}}>
+							{data.text}
+							</li>
 						);
 					})
 				);
