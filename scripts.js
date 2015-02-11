@@ -16,6 +16,7 @@ var classAreas = classPrefix+"-areas";
 var classAreasItemDefault = classAreas+"-item";
 var classSkills = classPrefix+"-skills";
 var classSkillsItemDefault = classSkills+"-item";
+var classSkillsItemMore = classSkillsItemDefault+"-more";
 var classActive = classPrefix+"-active";
 var classMore = classPrefix+"-more";
 var classNoMore = classPrefix+"-no-more";
@@ -74,7 +75,7 @@ var classNoMore = classPrefix+"-no-more";
 	/**
 	 * Build class names for Areas and Skills, based on default area data.json)
 	 */
-	var buildClassName = function( that, data, classNameDefault ) {
+	var buildClassName = function( that, data, classNameDefault, customAppend ) {
 		var cN = classNameDefault;
 		var defaultArea = that.props.data[0].defaults[0]["area"];
 		var currentArea = that.props.currentArea;
@@ -87,6 +88,9 @@ var classNoMore = classPrefix+"-no-more";
 		}
 		if ( data.more !== "" && data.more !== undefined ) {
 			cN += ' '+classMore;
+		}
+		if ( customAppend !== "" && customAppend !== undefined ) {
+			cN += ' '+customAppend;
 		}
 
 		return cN;
@@ -141,7 +145,7 @@ var classNoMore = classPrefix+"-no-more";
 							key={i} 
 							cN={cN} 
 							group={classPrefix+"-"+data.area}
-							text={data.text} />
+							data={data} />
 						);
 					})
 				);
@@ -159,14 +163,19 @@ var classNoMore = classPrefix+"-no-more";
 		getInitialState: function() {
 			return {
 				clicked: false,
+				open: false,
 			};
 		},
 
 		__handleClick: function() {
-			// Only handle that click when element is active (cN must contain classActive)
-			if (this.props.cN.indexOf(classActive) > -1) {
+			// Only proceed when element is active (cN must contain classActive)
+			if (this.props.cN.indexOf(classActive) < 0) return;
 				this.setState({clicked: true});
-			}
+			
+			// Only proceed when element has classMore
+			if (this.props.cN.indexOf(classMore) < 0) return;
+				// Toggle "open" -> true || false
+				this.setState({open: !this.state.open});
 		},
 
 		filterClassName: function( cN ) {
@@ -183,8 +192,33 @@ var classNoMore = classPrefix+"-no-more";
 
 		render: function() {
 			var cN = this.filterClassName(this.props.cN);
+			var cNPop = cN + ' popup';
+			if ( this.state.open ) {
+				cNPop += ' open';
+			}
+
 			return (
-				<li key={this.props.key} className={cN} data-group={this.props.group} onClick={this.__handleClick}>{this.props.text}</li>
+				<span>
+					<li key={this.props.key} className={cN} data-group={this.props.group} onClick={this.__handleClick}>{this.props.data.text}</li>
+					<SkillPop 
+					key={this.props.key+'_pop'} 
+					cN={cNPop} 
+					group={this.props.group}
+					data={this.props.data} />
+				</span>
+			);
+		}
+	});
+
+	var SkillPop = React.createClass({
+		render: function() {
+			return (
+				<li key={this.props.key} className={this.props.cN} data-group={this.props.group}>
+					{this.props.data.text}
+					<div className={classSkillsItemMore} data-group={this.props.group}>
+						{this.props.data.more}
+					</div>
+				</li>
 			);
 		}
 	});

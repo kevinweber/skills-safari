@@ -38,6 +38,16 @@
 
 	<ul class="saf-skills">
 	<li class="saf-skills-item saf-active" data-group="saf-1">Interest 1</li>
+	<!-- This is a copy of the previous element with an absolute position, including a popup div
+
+	1. Copy element and set position "x"
+	2. Change width to 100% (max-width: 250px) [this change is animated thanks to CSS]
+	3. Load text from data.json
+	-->
+	<li class="saf-skills-item saf-active popup open" data-group="saf-1">Interest 1
+		<div class="saf-skills-item-more" data-group="saf-1">Interest Popup Text 1</div>
+	</li>
+	<!-- /end copy -->
 	<li class="saf-skills-item" data-group="saf-2">Strategy 1</li>
 	<li class="saf-skills-item" data-group="saf-3">Design 1</li>
 	<li class="saf-skills-item saf-active saf-more" data-group="saf-1">Interest 1</li>
