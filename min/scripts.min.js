@@ -17,6 +17,8 @@ var classAreasItemDefault = classAreas+"-item";
 var classSkills = classPrefix+"-skills";
 var classSkillsItemDefault = classSkills+"-item";
 var classSkillsItemMore = classSkillsItemDefault+"-more";
+var classSkillsItemOpen = classSkillsItemDefault+'-open';
+var classPopup = 'popup';
 var classActive = classPrefix+"-active";
 var classMore = classPrefix+"-more";
 var classNoMore = classPrefix+"-no-more";
@@ -96,6 +98,25 @@ var classNoMore = classPrefix+"-no-more";
 		return cN;
 	};
 
+	// /**
+	//  * Test if element hasClass.
+	//  */
+	// var hasClass = function(ele,cls) {
+	//     return ele.className.match(new RegExp('(\\s|^)'+cls+'(\\s|$)'));
+	// };
+	// /**
+	//  * Remove/add class.
+	//  */
+	// var addClass = function(ele,cls) {
+	//     if (!hasClass(ele,cls)) ele.className += " "+cls;
+	// };
+	// var removeClass = function(ele,cls) {
+	//     if (hasClass(ele,cls)) {
+	//         var reg = new RegExp('(\\s|^)'+cls+'(\\s|$)');
+	//         ele.className = ele.className.replace(reg,' ');
+	//     }
+	// };
+
 	/**
 	 * Areas
 	 */
@@ -132,6 +153,23 @@ var classNoMore = classPrefix+"-no-more";
 	 * Skills
 	 */
 	var Skills = React.createClass({
+		getInitialState: function() {
+			return {
+				selectedSkill: null,
+			};
+		},
+
+		selectSkill: function(skill) {
+			// If the same skill is selected again, set skill to null to close the popup
+			if ( skill === this.state.selectedSkill ) {
+				skill = null;
+			}
+
+		    this.setState({
+		        selectedSkill: skill
+		    });
+		},
+
 		render: function() {
 			var that = this;
 
@@ -143,7 +181,9 @@ var classNoMore = classPrefix+"-no-more";
 						return (
 							<Skill 
 							key={i} 
-							cN={cN} 
+							cN={cN}
+							selectedSkill={that.state.selectedSkill}
+							selectSkill={that.selectSkill}
 							group={classPrefix+"-"+data.area}
 							data={data} />
 						);
@@ -163,19 +203,19 @@ var classNoMore = classPrefix+"-no-more";
 		getInitialState: function() {
 			return {
 				clicked: false,
-				open: false,
 			};
 		},
 
-		__handleClick: function() {
+		_handleClick: function() {
 			// Only proceed when element is active (cN must contain classActive)
 			if (this.props.cN.indexOf(classActive) < 0) return;
 				this.setState({clicked: true});
 			
 			// Only proceed when element has classMore
 			if (this.props.cN.indexOf(classMore) < 0) return;
-				// Toggle "open" -> true || false
-				this.setState({open: !this.state.open});
+
+			// Select current skill
+			this.props.selectSkill(this);
 		},
 
 		filterClassName: function( cN ) {
@@ -191,15 +231,17 @@ var classNoMore = classPrefix+"-no-more";
 		},
 
 		render: function() {
+			var that = this;
+
 			var cN = this.filterClassName(this.props.cN);
-			var cNPop = cN + ' popup';
-			if ( this.state.open ) {
-				cNPop += ' open';
+			var cNPop = cN+' '+classPopup;
+			if ( this.props.selectedSkill === this ) {
+				cNPop += ' '+classSkillsItemOpen;
 			}
 
 			return (
 				<span>
-					<li key={this.props.key} className={cN} data-group={this.props.group} onClick={this.__handleClick}>{this.props.data.text}</li>
+					<li key={this.props.key} className={cN} data-group={this.props.group} onClick={this._handleClick}>{this.props.data.text}</li>
 					<SkillPop 
 					key={this.props.key+'_pop'} 
 					cN={cNPop} 
