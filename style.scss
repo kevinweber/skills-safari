@@ -59,11 +59,11 @@ h1 {
 	}
 
 	&.saf-no-more:after {
-		opacity: 0.4;
+		color: rgba($colour-main, 0.4);
 	}
 
 	&.saf-active {
-		opacity: 1;
+		color: rgba($colour-main, 1);
 		border-color: $colour-main;
 		&.saf-more, &.saf-no-more {
 			cursor: pointer;
@@ -83,7 +83,7 @@ h1 {
 }
 
 .saf-skills-item {
-	opacity: 0.4;
+	color: rgba($colour-main, 0.4);
 	z-index: 1;
 	&.popup {
 		display: none;
@@ -97,6 +97,7 @@ h1 {
 		position: absolute;
 		width: 100%;
 		max-width: 250px;
+		background-color: rgba($white, 0.8);
 	}
 }
 
