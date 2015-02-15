@@ -21,6 +21,10 @@ body {
 	padding: 1rem;
 }
 
+a {
+	color: $colour-main;
+}
+
 h1 {
 	font-size: 2rem;
 	margin: 0.5rem;
@@ -46,7 +50,7 @@ h1 {
 	}
 
 	&.saf-no-more:after {
-		color: rgba($colour-main, 0.4);
+		color: rgba($colour-main, 0.2);
 	}
 
 	&.saf-active {
@@ -74,16 +78,16 @@ h1 {
 }
 
 .saf-skills-item {
-	color: rgba($colour-main, 0.4);
+	color: rgba($colour-main,0.4);
 	z-index: 1;
-	&.popup {
+	&.saf-popup {
 		display: none;
 		opacity: 0;
 		z-index: 2;
 		left: 0;
 		width: 250px;
 		cursor: initial!important;
-		box-shadow: 2px 3px 10px -3px rgba(0,0,0,.2);
+		box-shadow: 2px 3px 10px -3px rgba(0,0,0,0.2);
 		&.saf-more:after, &.saf-no-more:after {
 			content: '';
 		}
@@ -92,6 +96,9 @@ h1 {
 		display: inline-block;
 		position: absolute;
 		background-color: $white;
+		span {
+			border-bottom: 2px solid $grey-light;
+		}
 	}
 	.saf-skills-item-more {
 		padding-top: 10px;

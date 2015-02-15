@@ -8,11 +8,13 @@
  * Setup the plugin
  */
 var initId = "skills-safari";
+var dataSource = "data-source";
+var classPrefix = "saf";
+
 var dataInit = document.getElementById(initId);
-var dataUrl = dataInit.getAttribute('data-source');
+var dataUrl = dataInit.getAttribute(dataSource);
 var dataPollInterval = 1000;
 
-var classPrefix = "saf";
 var classAreas = classPrefix+"-areas";
 var classAreasItemDefault = classAreas+"-item";
 var classSkills = classPrefix+"-skills";
@@ -21,7 +23,7 @@ var classSkillsItemDefault = classSkills+"-item";
 var classSkillsItemMore = classSkillsItemDefault+"-more";
 var classSkillsItemOpen = classSkillsItemDefault+'-open';
 var classSkillsClose = classPrefix+"-close";
-var classPopup = 'popup';
+var classPopup = classPrefix+'-popup';
 var classActive = classPrefix+"-active";
 var classMore = classPrefix+"-more";
 var classNoMore = classPrefix+"-no-more";
@@ -41,7 +43,6 @@ var classNoMore = classPrefix+"-no-more";
 		},
 
 		updateDataAreaActive: function(id) {
-			// this.setState({currentSkill:null});
 			this.setSkill(null);
 			this.setState({currentArea:id});
 		},

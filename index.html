@@ -7,62 +7,21 @@
 	<title>Skills Safari</title>
 	<meta name="description" content="Skills Safari by Kevin Weber">
 	<meta name="author" content="Kevin Weber">
-
 	<link rel="stylesheet" href="min/style.min.css">
-
 	<!--[if lt IE 9]>
 	<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 	<![endif]-->
 </head>
 
 <body>
-
-
-
-<!-- REACT variant -->
-<div id="skills-safari" data-source="data.json"></div>
-<!-- /REACT variant -->
-
-
-
-
-<div class="skills-safari" data-group-default="saf-1">
-
-	<h1>Skills Safari (HTML)</h1>
-
-	<ul class="saf-areas">
-	<li class="saf-areas-item saf-active" data-group="saf-1">Interests</li>
-	<li class="saf-areas-item" data-group="saf-2">Strategy/Marketing</li>
-	<li class="saf-areas-item" data-group="saf-3">Design/Development</li>
-	</ul>
-
-	<ul class="saf-skills">
-	<li class="saf-skills-item saf-active" data-group="saf-1">Interest 1</li>
-	<!-- This is a copy of the previous element with an absolute position, including a popup div
-
-	1. Copy element and set position "x"
-	2. Change width to 100% (max-width: 250px) [this change is animated thanks to CSS]
-	3. Load text from data.json
-	-->
-	<li class="saf-skills-item saf-active popup saf-skills-item-open" data-group="saf-1">Interest 1
-		<div class="saf-skills-item-more" data-group="saf-1">Interest Popup Text 1</div>
-	</li>
-	<!-- /end copy -->
-	<li class="saf-skills-item" data-group="saf-2">Strategy 1</li>
-	<li class="saf-skills-item" data-group="saf-3">Design 1</li>
-	<li class="saf-skills-item saf-active saf-more" data-group="saf-1">Interest 1</li>
-	<li class="saf-skills-item saf-active" data-group="saf-1">Interest 1</li>
-	<li class="saf-skills-item" data-group="saf-2">Strategy 1</li>
-	<li class="saf-skills-item saf-no-more" data-group="saf-3">Design 1</li>
-	<li class="saf-skills-item saf-active" data-group="saf-1">Interest 1</li>
-	</ul>
-
-</div>
-
-<!-- <script src="min/react-with-addons.min.js"></script> -->
-<script src="react-with-addons.js"></script>
-<script src="min/JSXTransformer.min.js"></script>
-<script src="min/jquery-1.10.0.min.js"></script>
-<script type="text/jsx" src="min/scripts.min.js"></script>
+	<!-- REACT app -->
+	<div id="skills-safari" data-source="data.json"></div>
+	<!-- /REACT app -->
+	
+	<script src="min/react-with-addons.min.js"></script>
+	<!-- <script src="react-with-addons.js"></script> -->
+	<script src="min/JSXTransformer.min.js"></script>
+	<script src="min/jquery-1.10.0.min.js"></script>
+	<script type="text/jsx" src="min/scripts.min.js"></script>
 </body>
 </html>
