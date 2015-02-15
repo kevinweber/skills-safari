@@ -69,7 +69,7 @@ var classNoMore = classPrefix+"-no-more";
 
 		componentDidMount: function() {
 			this.loadData();
-			// setInterval(this.loadData, this.props.pollInterval);	// Use this to automatically reload data from data.json
+			setInterval(this.loadData, this.props.pollInterval);	// Use this to automatically reload data from dataURL
 		},
 
 		render: function() {
