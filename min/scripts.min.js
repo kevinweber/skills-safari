@@ -32,12 +32,26 @@ var classNoMore = classPrefix+"-no-more";
 		getInitialState: function() {
 			return {
 				data: [],
-				currentArea: "",
+				currentArea: null,
+				currentSkill: null,
 			};
 		},
 
 		updateDataAreaActive: function( id ) {
+			// this.setState({currentSkill:null});
+			this.setSkill(null);
 			this.setState({currentArea:id});
+		},
+
+		setSkill: function(skill) {
+			// If the same skill is selected again, set skill to null to close the popup
+			if ( skill === this.state.currentSkill ) {
+				skill = null;
+			}
+
+		    this.setState({
+		        currentSkill: skill
+		    });
 		},
 
 		loadData: function() {
@@ -60,7 +74,12 @@ var classNoMore = classPrefix+"-no-more";
 				<div className={initId}>
 					<Heading />
 					<Areas data={this.state.data} onClick={this.updateDataAreaActive} currentArea={this.state.currentArea} />
-					<Skills data={this.state.data} currentArea={this.state.currentArea} />
+					<Skills
+						data={this.state.data}
+						currentArea={this.state.currentArea}
+						currentSkill={this.state.currentSkill}
+						setSkill={this.setSkill}
+						/>
 				</div>
 			);
 		}
@@ -83,7 +102,7 @@ var classNoMore = classPrefix+"-no-more";
 		var currentArea = that.props.currentArea;
 
 		if ( 
-				( currentArea === "" && data.area === defaultArea)  ||
+				( currentArea === null && data.area === defaultArea)  ||
 				( currentArea === data.area )
 			) {
 			cN += ' '+classActive;
@@ -153,23 +172,6 @@ var classNoMore = classPrefix+"-no-more";
 	 * Skills
 	 */
 	var Skills = React.createClass({
-		getInitialState: function() {
-			return {
-				selectedSkill: null,
-			};
-		},
-
-		selectSkill: function(skill) {
-			// If the same skill is selected again, set skill to null to close the popup
-			if ( skill === this.state.selectedSkill ) {
-				skill = null;
-			}
-
-		    this.setState({
-		        selectedSkill: skill
-		    });
-		},
-
 		render: function() {
 			var that = this;
 
@@ -182,8 +184,8 @@ var classNoMore = classPrefix+"-no-more";
 							<Skill 
 							key={i} 
 							cN={cN}
-							selectedSkill={that.state.selectedSkill}
-							selectSkill={that.selectSkill}
+							currentSkill={that.props.currentSkill}
+							setSkill={that.props.setSkill}
 							group={classPrefix+"-"+data.area}
 							data={data} />
 						);
@@ -215,7 +217,7 @@ var classNoMore = classPrefix+"-no-more";
 			if (this.props.cN.indexOf(classMore) < 0) return;
 
 			// Select current skill
-			this.props.selectSkill(this);
+			this.props.setSkill(this);
 		},
 
 		filterClassName: function( cN ) {
@@ -235,7 +237,7 @@ var classNoMore = classPrefix+"-no-more";
 
 			var cN = this.filterClassName(this.props.cN);
 			var cNPop = cN+' '+classPopup;
-			if ( this.props.selectedSkill === this ) {
+			if ( this.props.currentSkill === this ) {
 				cNPop += ' '+classSkillsItemOpen;
 			}
 
