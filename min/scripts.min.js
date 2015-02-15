@@ -118,24 +118,24 @@ var classNoMore = classPrefix+"-no-more";
 		return cN;
 	};
 
-	// /**
-	//  * Test if element hasClass.
-	//  */
-	// var hasClass = function(ele,cls) {
-	//     return ele.className.match(new RegExp('(\\s|^)'+cls+'(\\s|$)'));
-	// };
-	// /**
-	//  * Remove/add class.
-	//  */
-	// var addClass = function(ele,cls) {
-	//     if (!hasClass(ele,cls)) ele.className += " "+cls;
-	// };
-	// var removeClass = function(ele,cls) {
-	//     if (hasClass(ele,cls)) {
-	//         var reg = new RegExp('(\\s|^)'+cls+'(\\s|$)');
-	//         ele.className = ele.className.replace(reg,' ');
-	//     }
-	// };
+	/**
+	 * Test if element hasClass.
+	 */
+	var hasClass = function(ele,cls) {
+	    return ele.className.match(new RegExp('(\\s|^)'+cls+'(\\s|$)'));
+	};
+	/**
+	 * Remove/add class.
+	 */
+	var addClass = function(ele,cls) {
+	    if (!hasClass(ele,cls)) ele.className += " "+cls;
+	};
+	var removeClass = function(ele,cls) {
+	    if (hasClass(ele,cls)) {
+	        var reg = new RegExp('(\\s|^)'+cls+'(\\s|$)');
+	        ele.className = ele.className.replace(reg,' ');
+	    }
+	};
 
 	/**
 	 * Areas
@@ -256,6 +256,30 @@ var classNoMore = classPrefix+"-no-more";
 	});
 
 	var SkillPop = React.createClass({
+		// componentDidMount: function() {
+		// 	this.setPosition();
+		// },
+
+		componentDidUpdate: function(prevProps, prevState) {
+			this.setPosition();
+		},
+
+		setPosition: function() {
+			var that = this;
+
+			var dom = this.getDOMNode();
+			var $dom = $( dom );
+
+			if ( hasClass(dom, classSkillsItemOpen) ) {
+				$dom.animate({
+					opacity: 1,
+				}, 0);
+			} else {
+				dom.style.opacity = 0;
+			}
+		},
+
+
 		render: function() {
 			return (
 				<li key={this.props.key} className={this.props.cN} data-group={this.props.group}>
