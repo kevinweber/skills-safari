@@ -257,9 +257,7 @@ var classNoMore = classPrefix+"-no-more";
 			return (
 				<li key={this.props.key} className={this.props.cN} data-group={this.props.group}>
 					{this.props.data.text}
-					<div className={classSkillsItemMore} data-group={this.props.group}>
-						{this.props.data.more}
-					</div>
+					<div dangerouslySetInnerHTML={{__html: this.props.data.more}} className={classSkillsItemMore} data-group={this.props.group} />
 				</li>
 			);
 		}
