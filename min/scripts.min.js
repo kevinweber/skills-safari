@@ -19,6 +19,7 @@ var classSkillsWrapper = classSkills+"-wrapper";
 var classSkillsItemDefault = classSkills+"-item";
 var classSkillsItemMore = classSkillsItemDefault+"-more";
 var classSkillsItemOpen = classSkillsItemDefault+'-open';
+var classSkillsClose = classPrefix+"-close";
 var classPopup = 'popup';
 var classActive = classPrefix+"-active";
 var classMore = classPrefix+"-more";
@@ -248,6 +249,7 @@ var classNoMore = classPrefix+"-no-more";
 					<SkillPop
 						key={this.props.key+'_pop'}
 						cN={cNPop}
+						setSkill={that.props.setSkill}
 						data={this.props.data}
 						/>
 				</span>
@@ -256,15 +258,16 @@ var classNoMore = classPrefix+"-no-more";
 	});
 
 	var SkillPop = React.createClass({
-		// componentDidMount: function() {
-		// 	this.setPosition();
-		// },
-
 		componentDidUpdate: function(prevProps, prevState) {
-			this.setPosition();
+			this.showPopup();
 		},
 
-		setPosition: function() {
+		_handleClickClose: function(e) {
+			e.preventDefault();
+			this.props.setSkill(null);
+		},
+
+		showPopup: function() {
 			var that = this;
 
 			var dom = this.getDOMNode();
@@ -279,10 +282,10 @@ var classNoMore = classPrefix+"-no-more";
 			}
 		},
 
-
 		render: function() {
 			return (
 				<li key={this.props.key} className={this.props.cN} data-group={this.props.group}>
+					<a className={classSkillsClose} href="" title="Hide popup" onClick={this._handleClickClose}>✖</a>
 					{this.props.data.text}
 					<div dangerouslySetInnerHTML={{__html: this.props.data.more}} className={classSkillsItemMore} />
 				</li>

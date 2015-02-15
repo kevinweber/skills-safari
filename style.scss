@@ -5,21 +5,8 @@
  */
 $colour-main: #009000;
 $white: #fff;
+$grey-light: #ccc;
 $border-radius: 1rem;
-
-
-/*
- * Classes
- *
-.skills-safari
-	.saf-areas
-		.saf-areas-item
-	.saf-skills
-		.saf-skills-item
-			.saf-more		// Used when additional information is available
-			.saf-no-more	// Used when additional information has been visible
- */
-
 
 /*
  * Basic styling
@@ -72,7 +59,7 @@ h1 {
 }
 
 .saf-areas {
-	border: 2px solid #f1f1f1;
+	border: 2px solid $grey-light;
 	border-radius: $border-radius;
 }
 
@@ -109,6 +96,18 @@ h1 {
 	.saf-skills-item-more {
 		padding-top: 10px;
 		line-height: 1.25em;
+	}
+}
+
+.saf-close {
+	float: right;
+	position: relative;
+	top: -2px;
+	text-decoration: none;
+	color: $grey-light;
+	opacity: 0.6;
+	&:hover {
+		opacity: 1;
 	}
 }
 
