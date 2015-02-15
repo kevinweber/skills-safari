@@ -8,7 +8,8 @@
  * Setup the plugin
  */
 var initId = "skills-safari";
-var dataUrl = "data.json";
+var dataInit = document.getElementById(initId);
+var dataUrl = dataInit.getAttribute('data-source');
 var dataPollInterval = 1000;
 
 var classPrefix = "saf";
@@ -259,7 +260,7 @@ var classNoMore = classPrefix+"-no-more";
 
 	var SkillPop = React.createClass({
 		componentDidUpdate: function(prevProps, prevState) {
-			this.showPopup();
+			this._showPopup();
 		},
 
 		_handleClickClose: function(e) {
@@ -267,7 +268,7 @@ var classNoMore = classPrefix+"-no-more";
 			this.props.setSkill(null);
 		},
 
-		showPopup: function() {
+		_showPopup: function() {
 			var that = this;
 
 			var dom = this.getDOMNode();
@@ -298,7 +299,7 @@ var classNoMore = classPrefix+"-no-more";
 	 */
 	React.render(
 		<Builder url={dataUrl} pollInterval={dataPollInterval} />,
-		document.getElementById(initId)
+		dataInit
 	);
 
 }( window.saf = window.saf || {}, jQuery ));
