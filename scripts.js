@@ -15,6 +15,7 @@ var classPrefix = "saf";
 var classAreas = classPrefix+"-areas";
 var classAreasItemDefault = classAreas+"-item";
 var classSkills = classPrefix+"-skills";
+var classSkillsWrapper = classSkills+"-wrapper";
 var classSkillsItemDefault = classSkills+"-item";
 var classSkillsItemMore = classSkillsItemDefault+"-more";
 var classSkillsItemOpen = classSkillsItemDefault+'-open';
@@ -37,7 +38,7 @@ var classNoMore = classPrefix+"-no-more";
 			};
 		},
 
-		updateDataAreaActive: function( id ) {
+		updateDataAreaActive: function(id) {
 			// this.setState({currentSkill:null});
 			this.setSkill(null);
 			this.setState({currentArea:id});
@@ -242,13 +243,13 @@ var classNoMore = classPrefix+"-no-more";
 			}
 
 			return (
-				<span>
-					<li key={this.props.key} className={cN} data-group={this.props.group} onClick={this._handleClick}>{this.props.data.text}</li>
-					<SkillPop 
-					key={this.props.key+'_pop'} 
-					cN={cNPop} 
-					group={this.props.group}
-					data={this.props.data} />
+				<span className={classSkillsWrapper} data-group={this.props.group}>
+					<li className={cN} key={this.props.key} onClick={this._handleClick}>{this.props.data.text}</li>
+					<SkillPop
+						key={this.props.key+'_pop'}
+						cN={cNPop}
+						data={this.props.data}
+						/>
 				</span>
 			);
 		}
@@ -259,7 +260,7 @@ var classNoMore = classPrefix+"-no-more";
 			return (
 				<li key={this.props.key} className={this.props.cN} data-group={this.props.group}>
 					{this.props.data.text}
-					<div dangerouslySetInnerHTML={{__html: this.props.data.more}} className={classSkillsItemMore} data-group={this.props.group} />
+					<div dangerouslySetInnerHTML={{__html: this.props.data.more}} className={classSkillsItemMore} />
 				</li>
 			);
 		}

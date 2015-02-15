@@ -10,7 +10,7 @@
 	],
 
 	"skills": [
-		{ "area": "1", "text": "Interest 1", "more": "<a href='http://kevinw.de' target='_blank'>A link.</a> Some HTML..." },
+		{ "area": "1", "text": "Interest 1", "more": "<a href='http://kevinw.de' target='_blank'>A link.</a> Some HTML... kfjaösldkjva ösdlkfj ölsakdfj öalskdjf dsfa sd" },
 		{ "area": "2", "text": "Strategy/Marketing 2", "more": "" },
 		{ "area": "2", "text": "Strategy/Marketing 1", "more": "" },
 		{ "area": "1", "text": "Interest 2", "more": "" },
