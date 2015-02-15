@@ -3,10 +3,10 @@
 /*
  * Variables
  */
-$colour-main: #009000;
+$colour-main: #2c2c29;//#009000;
 $white: #fff;
 $grey-light: #ccc;
-$border-radius: 1rem;
+$grey-lighter: #f1f1f1;
 
 /*
  * Basic styling
@@ -25,9 +25,14 @@ a {
 	color: $colour-main;
 }
 
-h1 {
-	font-size: 2rem;
-	margin: 0.5rem;
+.skills-safari-heading {
+	font-size: 36px;
+	line-height: 40px;
+	margin-bottom: 10px;
+	background: $colour-main;
+	display: inline-block;
+	color: white;
+	padding: 4px 10px;
 }
 
 .skills-safari ::selection {
@@ -38,10 +43,8 @@ h1 {
 .saf-areas-item, .saf-skills-item {
 	display: inline-block;
 	color: $colour-main;
-	border: 2px solid transparent;
-	border-radius: $border-radius;
 	margin: 0.5rem;
-	padding: 1rem;
+	padding: 0.5rem;
 	text-align: left;
 
 	&.saf-more:after, &.saf-no-more:after {
@@ -55,7 +58,6 @@ h1 {
 
 	&.saf-active {
 		color: rgba($colour-main, 1);
-		border-color: $colour-main;
 		&.saf-more, &.saf-no-more {
 			cursor: pointer;
 		}
@@ -63,13 +65,21 @@ h1 {
 }
 
 .saf-areas {
-	border: 2px solid $grey-light;
-	border-radius: $border-radius;
-}
-
-.saf-areas-item {
-	&:not(.saf-active) {
-		cursor: pointer;
+	display: inline-block;
+	padding: 0.5rem 10px 1.5rem;
+	&:before {
+		content: 'Filter:';
+	}
+	.saf-areas-item {
+		border: 2px solid transparent;
+		&.saf-active {
+			border-color: $grey-light;
+			background-color: $grey-lighter;
+		}
+		&:not(.saf-active) {
+			border-bottom-color: $grey-light;
+			cursor: pointer;
+		}
 	}
 }
 
@@ -78,8 +88,12 @@ h1 {
 }
 
 .saf-skills-item {
+	border: 2px solid transparent;
 	color: rgba($colour-main,0.4);
 	z-index: 1;
+	&.saf-active {
+		border-color: $grey-light;
+	}
 	&.saf-popup {
 		display: none;
 		opacity: 0;
@@ -95,7 +109,7 @@ h1 {
 	&.saf-skills-item-open {
 		display: inline-block;
 		position: absolute;
-		background-color: $white;
+		background-color: $grey-lighter;
 		span {
 			border-bottom: 2px solid $grey-light;
 		}

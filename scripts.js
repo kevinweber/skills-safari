@@ -76,7 +76,6 @@ var classNoMore = classPrefix+"-no-more";
 		render: function() {
 			return (
 				<div className={initId}>
-					<Heading />
 					<Areas data={this.state.data} onClick={this.updateDataAreaActive} currentArea={this.state.currentArea} />
 					<Skills
 						data={this.state.data}
@@ -85,14 +84,6 @@ var classNoMore = classPrefix+"-no-more";
 						setSkill={this.setSkill}
 						/>
 				</div>
-			);
-		}
-	});
-
-	var Heading = React.createClass({
-		render: function() {
-			return (
-				<h1>Skills Safari (React)</h1>
 			);
 		}
 	});
