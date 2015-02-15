@@ -23,7 +23,7 @@
 		{ "area": "1", "text": "Journalism", "more": "" },
 		{ "area": "2", "text": "HTML5", "more": "" },
 		{ "area": "1", "text": "Storytelling", "more": "" },
-		{ "area": "2", "text": "Git & versioning", "more": "" },
+		{ "area": "2", "text": "GIT", "more": "Versioning is essential. My code is partially visible on <a href='https://github.com/kevinweber' target='_blank' title='Kevin Weber on Github'>Github</a>." },
 		{ "area": "1", "text": "Conception", "more": "" },
 		{ "area": "2", "text": "Adobe PS/AI/ID", "more": "" },
 		{ "area": "1", "text": "Analytics", "more": "" },
