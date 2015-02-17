@@ -3,7 +3,8 @@
 /*
  * Variables
  */
-$colour-main: #2c2c29;//#009000;
+$colour-first: #2c2c29;
+$colour-second: #4e97cc;
 $white: #fff;
 $grey-light: #ccc;
 $grey-lighter: #f1f1f1;
@@ -22,27 +23,27 @@ body {
 }
 
 a {
-	color: $colour-main;
+	color: $colour-first;
 }
 
 .skills-safari-heading {
 	font-size: 36px;
 	line-height: 40px;
 	margin-bottom: 10px;
-	background: $colour-main;
+	background: $colour-first;
 	display: inline-block;
 	color: white;
 	padding: 4px 10px;
 }
 
 .skills-safari ::selection {
-	background-color: $colour-main;
+	background-color: $colour-first;
 	color: $white;
 }
 
 .saf-areas-item, .saf-skills-item {
 	display: inline-block;
-	color: $colour-main;
+	color: $colour-first;
 	margin: 0.5rem;
 	padding: 0.5rem;
 	text-align: left;
@@ -52,12 +53,16 @@ a {
 		font-weight: bold;
 	}
 
+	&.saf-more:after {
+		color: $colour-second;
+	}
+
 	&.saf-no-more:after {
-		color: rgba($colour-main, 0.2);
+		color: rgba($colour-first, 0.2);
 	}
 
 	&.saf-active {
-		color: rgba($colour-main, 1);
+		color: rgba($colour-first, 1);
 		&.saf-more, &.saf-no-more {
 			cursor: pointer;
 		}
@@ -89,7 +94,7 @@ a {
 
 .saf-skills-item {
 	border: 2px solid transparent;
-	color: rgba($colour-main,0.4);
+	color: rgba($colour-first,0.4);
 	z-index: 1;
 	&.saf-active {
 		border-color: $grey-light;
@@ -133,5 +138,5 @@ a {
 }
 
 .saf-active {
-	border-color: $colour-main;
+	border-color: $colour-first;
 }
