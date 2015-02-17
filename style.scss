@@ -99,6 +99,11 @@ a {
 	&.saf-active {
 		border-color: $grey-light;
 	}
+	&:not(.saf-active) {
+		&:after {
+			opacity: 0.5;
+		}
+	}
 	&.saf-popup {
 		display: none;
 		opacity: 0;

@@ -118,18 +118,6 @@ var classNoMore = classPrefix+"-no-more";
 	var hasClass = function(ele,cls) {
 	    return ele.className.match(new RegExp('(\\s|^)'+cls+'(\\s|$)'));
 	};
-	/**
-	 * Remove/add class.
-	 */
-	var addClass = function(ele,cls) {
-	    if (!hasClass(ele,cls)) ele.className += " "+cls;
-	};
-	var removeClass = function(ele,cls) {
-	    if (hasClass(ele,cls)) {
-	        var reg = new RegExp('(\\s|^)'+cls+'(\\s|$)');
-	        ele.className = ele.className.replace(reg,' ');
-	    }
-	};
 
 	/**
 	 * Areas
@@ -215,6 +203,10 @@ var classNoMore = classPrefix+"-no-more";
 			this.props.setSkill(this);
 		},
 
+		_setOutOfFrame: function( string ) {
+			this.setState({outOfFrame:string});
+		},
+
 		filterClassName: function( cN ) {
 			if (
 				// Only add classNoMore when element was clicked
@@ -243,6 +235,8 @@ var classNoMore = classPrefix+"-no-more";
 						key={this.props.key+'_pop'}
 						cN={cNPop}
 						setSkill={that.props.setSkill}
+						setOutOfFrame={this._setOutOfFrame}
+						outOfFrame={this.state.outOfFrame}
 						data={this.props.data}
 						/>
 				</span>
@@ -266,6 +260,14 @@ var classNoMore = classPrefix+"-no-more";
 			var dom = this.getDOMNode();
 			var $dom = $( dom );
 
+			// Change popup direction when it would be to wide
+			var parentRight = $('.'+classSkills).offset().left + $('.'+classSkills).width();
+			var childRight = $dom.offset().left + $dom.width();
+			if ( childRight > parentRight ) {
+				$dom.css({'left':'initial','right':'0'});
+			}
+
+			// Animate opacity
 			if ( hasClass(dom, classSkillsItemOpen) ) {
 				$dom.animate({
 					opacity: 1,
