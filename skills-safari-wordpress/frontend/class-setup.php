@@ -28,13 +28,13 @@ if ( ! class_exists( 'Kevinw_SF_Frontend_Setup' ) ) {
 
 			wp_enqueue_script( 'jquery' );
 			wp_enqueue_script( 'kevinw-sf-react', plugins_url( 'assets/react.min.js', KEVINW_SF_FILE ), array(), false, true );
-			wp_enqueue_script( 'kevinw-sf-yp', plugins_url( 'assets/scripts.min.js', KEVINW_SF_FILE ), array(), false, true );
+			wp_enqueue_script( 'kevinw-sf-react-app', plugins_url( 'assets/scripts.min.js', KEVINW_SF_FILE ), array(), false, true );
 		
 			$this->register_scripts_css();
 		}
 
 		function register_scripts_css() {
-			wp_register_style( 'css-kevinw-sf-basic', plugins_url( 'assets/style.min.css', KEVINW_SF_FILE ) );
+			wp_register_style( 'css-kevinw-sf-basic', plugins_url( 'css/style.min.css', KEVINW_SF_FILE ) );
 			wp_enqueue_style( 'css-kevinw-sf-basic' );
 		}
 
