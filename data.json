@@ -22,6 +22,7 @@
 		{ "area": "1", "text": "Speaking", "more": "Summit @TODO" },
 		{ "area": "1", "text": "Journalism", "more": "" },
 		{ "area": "2", "text": "HTML5", "more": "" },
+		{ "area": "1", "text": "Innovation", "more": "" },
 		{ "area": "1", "text": "Storytelling", "more": "" },
 		{ "area": "2", "text": "GIT", "more": "Versioning is essential. My work is partially visible on <a href='https://github.com/kevinweber' target='_blank' title='Kevin Weber on Github'>Github</a>." },
 		{ "area": "1", "text": "Conception", "more": "" },
@@ -29,8 +30,6 @@
 		{ "area": "1", "text": "Analytics", "more": "" },
 		{ "area": "2", "text": "MacOS X", "more": "" },
 		{ "area": "1", "text": "Scrum", "more": "" },
-		{ "area": "2", "text": "React & JSX", "more": "" },
-		{ "area": "1", "text": "Kaizen", "more": "" },
 		{ "area": "2", "text": "CodeKit", "more": "This tool is awesome. I use it to optimise code, minify files and automate browser refreshing." },
 		{ "area": "1", "text": "Testing", "more": "" },
 		{ "area": "1", "text": "Cross-channel", "more": "SEO, Social Media, Events, ... @TODO" }
