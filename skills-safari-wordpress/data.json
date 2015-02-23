@@ -1,0 +1,37 @@
+[{
+	"defaults": [
+		{ "area" : "1" }
+	],
+
+	"areas": [
+		{ "area" : "1", "text": "Strategy & Marketing" },
+		{ "area" : "2", "text": "Design & Development" }
+	],
+
+	"skills": [
+		{ "area": "2", "text": "WordPress", "more": "I use WordPress as playground to code and to test methods and ideas. Thereby I connect with people from all over the globe. My WordPress ressources have been downloaded more than 80.000 times from <a href='https://profiles.wordpress.org/kevinweber/' target='_blank' title='Kevin Weber on WordPress.org'>WordPress.org</a>." },
+		{ "area": "1", "text": "Lateral Thinking", "more": "" },
+		{ "area": "2", "text": "CSS & SASS", "more": "" },
+		{ "area": "1", "text": "Solution-focused", "more": "Ökotopia @TODO" },
+		{ "area": "2", "text": "jQuery", "more": "" },
+		{ "area": "1", "text": "Automation", "more": "" },
+		{ "area": "2", "text": "PHP", "more": "" },
+		{ "area": "1", "text": "Creative", "more": "" },
+		{ "area": "1", "text": "Consulting", "more": "" },
+		{ "area": "2", "text": "Wireframes", "more": "" },
+		{ "area": "1", "text": "Speaking", "more": "Summit @TODO" },
+		{ "area": "1", "text": "Journalism", "more": "" },
+		{ "area": "2", "text": "HTML5", "more": "" },
+		{ "area": "1", "text": "Innovation", "more": "" },
+		{ "area": "1", "text": "Storytelling", "more": "" },
+		{ "area": "2", "text": "GIT", "more": "Versioning is essential. My work is partially visible on <a href='https://github.com/kevinweber' target='_blank' title='Kevin Weber on Github'>Github</a>." },
+		{ "area": "1", "text": "Conception", "more": "" },
+		{ "area": "2", "text": "Adobe PS/AI/ID", "more": "" },
+		{ "area": "1", "text": "Analytics", "more": "" },
+		{ "area": "2", "text": "MacOS X", "more": "" },
+		{ "area": "1", "text": "Scrum", "more": "" },
+		{ "area": "2", "text": "CodeKit", "more": "This tool is awesome. I use it to optimise code, minify files and automate browser refreshing." },
+		{ "area": "1", "text": "Testing", "more": "" },
+		{ "area": "1", "text": "Cross-channel", "more": "SEO, Social Media, Events, ... @TODO" }
+	]
+}]
