@@ -1,7 +1,7 @@
 Skills Safari for WordPress by [Kevin Weber](http://kevinw.de/)
 ====================
 
-Work in progress.
+Work in progress, or at least I do not guarantee anything.
 
 ## Instructions
 1. Upload the plugin to your site.
