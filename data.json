@@ -5,33 +5,38 @@
 
 	"areas": [
 		{ "area" : "1", "text": "Strategy & Marketing" },
-		{ "area" : "2", "text": "Design & Development" }
+		{ "area" : "2", "text": "Design & Development" },
+		{ "area" : "3", "text": "Random Stuff" }
 	],
 
 	"skills": [
-		{ "area": "2", "text": "WordPress", "more": "I use WordPress as playground to code and to test methods and ideas. Thereby I connect with people from all over the globe. My WordPress ressources have been downloaded more than 80.000 times from <a href='https://profiles.wordpress.org/kevinweber/' target='_blank' title='Kevin Weber on WordPress.org'>WordPress.org</a>." },
-		{ "area": "1", "text": "Lateral Thinking", "more": "" },
+		{ "area": "3", "text": "Hi", "more": "" },
+		{ "area": "2", "text": "WordPress", "more": "I use WordPress as playground to code and to test methods and ideas. Thereby I connect with and support people from all over the globe. My WordPress resources have been downloaded more than 80.000 times from <a href='https://profiles.wordpress.org/kevinweber/' target='_blank' title='Kevin Weber on WordPress.org'>WordPress.org</a>." },
+		{ "area": "1", "text": "Lateral Thinking", "more": "\"Think different\" isn't just a slogan for me. I embrace people and ideas that seem to be bold at first. " },
 		{ "area": "2", "text": "CSS & SASS", "more": "" },
-		{ "area": "1", "text": "Solution-focused", "more": "Ökotopia @TODO" },
+		{ "area": "1", "text": "Solution-focused", "more": "When my team and I pitched for a publishing house, it wasn't our know-how alone that made us <a href='http://www.dhbw-mosbach.de/service-pages/meldung-im-detail/article/kreative-ideen-fuer-echte-auftraggeber.html' target='_blank' title='Kreative Ideen fuer echte Auftraggeber'>the winners</a>. We convinced them by actually listening to and discussing with their audience, and then we were able to develop promising concepts and prototypes." },
 		{ "area": "2", "text": "jQuery", "more": "" },
-		{ "area": "1", "text": "Automation", "more": "" },
+		{ "area": "3", "text": "re", "more": "" },
+		{ "area": "1", "text": "Automation", "more": "Automate as many processes as possible, so that you can focus on (even more) topics that really matter." },
 		{ "area": "2", "text": "PHP", "more": "" },
 		{ "area": "1", "text": "Creative", "more": "" },
 		{ "area": "1", "text": "Consulting", "more": "" },
 		{ "area": "2", "text": "Wireframes", "more": "" },
-		{ "area": "1", "text": "Speaking", "more": "Summit @TODO" },
+		{ "area": "1", "text": "Speaking", "more": "I'm not the guy who puts himself <a href='http://kevinw.de/greenbird/2014/06/25/best-practice-zum-shop-konzept-2-tagen/' target='_blank' title='Best Practice: Zum Shop-Konzept in 2 Tagen'>in front</a> just to be there. Actually, when I speak, I assume that my words matter and should be heard. Either in a professional way, or to spread some fun (especially with my friends)." },
 		{ "area": "1", "text": "Journalism", "more": "" },
 		{ "area": "2", "text": "HTML5", "more": "" },
-		{ "area": "1", "text": "Innovation", "more": "" },
+		{ "area": "3", "text": "me", "more": "" },
+		{ "area": "1", "text": "Innovation", "more": "\"[T]he most difficult change isn't about process or technology but mindset\", Adam Pisoni. Some of my projects are pretty unique (such as <a href='http://kevinw.de/lazy-load-videos/' target='_blank' title='Lazy Load for Videos'>Lazy Load for Videos</a>), and I'm is ready to create many more innovative things." },
 		{ "area": "1", "text": "Storytelling", "more": "" },
 		{ "area": "2", "text": "GIT", "more": "Versioning is essential. My work is partially visible on <a href='https://github.com/kevinweber' target='_blank' title='Kevin Weber on Github'>Github</a>." },
 		{ "area": "1", "text": "Conception", "more": "" },
 		{ "area": "2", "text": "Adobe PS/AI/ID", "more": "" },
-		{ "area": "1", "text": "Analytics", "more": "" },
 		{ "area": "2", "text": "MacOS X", "more": "" },
 		{ "area": "1", "text": "Scrum", "more": "" },
-		{ "area": "2", "text": "CodeKit", "more": "This tool is awesome. I use it to optimise code, minify files and automate browser refreshing." },
+		{ "area": "3", "text": ":-)", "more": "" },
+		{ "area": "2", "text": "CodeKit", "more": "" },
+		{ "area": "1", "text": "Cross-channel", "more": "There are, of course, many phrases like social media, SEO and content marketing. However, I love to connect both worlds, online and offline, which also includes augmented reality, in-store experiences and events." },
 		{ "area": "1", "text": "Testing", "more": "" },
-		{ "area": "1", "text": "Cross-channel", "more": "SEO, Social Media, Events, ... @TODO" }
+		{ "area": "3", "text": "Got it?", "more": "Have another look ;-)<br><a href='/kontakt/' title='Contact Kevin Weber'>Contact me.</a>" }
 	]
 }]
