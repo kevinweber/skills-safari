@@ -3,12 +3,14 @@ Skills Safari for WordPress by [Kevin Weber](http://kevinw.de/)
 
 Work in progress.
 
-# Instruction
+## Instructions
 1. Upload the plugin to your site.
 2. Move the file 'data.json' to whereever you want.
 3. Edit 'data.json'.
-4. Paste the required HTML into your template and setup the path to your 'data.json' file, such as:
+4. Paste the exemplery code into your WordPress template and setup the path to your 'data.json' file in the 'data-source' attribute.
+5. Activate the plugin.
 
+## Exemplery code
 ```
 <?php if ( function_exists( 'kevinw_sf' ) ) { ?>
 <div class="skills-safari-wrapper">
@@ -17,5 +19,3 @@ Work in progress.
 </div>
 <?php } ?>
 ```
-
-5. Activate the plugin.
